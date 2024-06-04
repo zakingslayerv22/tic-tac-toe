@@ -18,7 +18,15 @@ const createGameBoard = (function() {
 
     const getBoard = () => board;
 
-    return { getBoard }
+    const addMarker = (row, column) => {
+        if (board[row][column] === 0) {
+            board[row][column] = "x";
+        } else {
+            return;
+        }
+    }
+
+    return { getBoard, addMarker }
 
 })();
 
@@ -26,3 +34,7 @@ const createGameBoard = (function() {
 
 
 console.log(createGameBoard.getBoard());
+
+createGameBoard.addMarker(0, 1);
+createGameBoard.addMarker(2, 1);
+createGameBoard.addMarker(2, 1);
