@@ -18,11 +18,11 @@ function createGameBoard() {
 
     const getBoard = () => board;
 
-    const addMarker = (row, column) => {
+    const addMarker = (row, column, player) => {
         if (board[row][column].getCellValue() === 0) {
             //do something here
             console.log("Sub Zero!")
-            //board[row][column] = "x";
+            board[row][column].addPlayerMarker(player);
         } else {
             return;
         }
@@ -41,10 +41,15 @@ function createCell() {
     //default cell value
     let cellValue = 0;
 
+    //player would be able to change the value of the cell
+    const addPlayerMarker = (player) => {
+        cellValue = player;
+    }
+
     //get the value of the cell
     const getCellValue = () => cellValue;
 
-    return { getCellValue }
+    return { addPlayerMarker, getCellValue };
 }
 
 const gameBoard = createGameBoard()
