@@ -20,10 +20,9 @@ function createGameBoard() {
 
     const addMarker = (row, column, player) => {
         if (board[row][column].getCellValue() === 0) {
-            //do something here
-            console.log("Sub Zero!")
             board[row][column].addPlayerMarker(player);
         } else {
+            //wrong move, a marker is already here
             return;
         }
     }
@@ -64,12 +63,12 @@ function controlGame(
     [
         {
             name: playerOneName,
-            marker: "x"
+            marker: 1
         },
 
         {
             name: playerTwoName,
-            marker: "o"
+            marker: 2
         }
 
     ];
@@ -87,11 +86,25 @@ function controlGame(
         gameBoard.printBoard();
         console.log(`Its ${getActivePlayer().name}'s turn to play!`)
     }
+
+    const playRound = (row, column) => {
+        //Place a marker for the current player
+        console.log(`Placing ${getActivePlayer().name}'s marker on row ${row}, column ${column}...`);
+
+        gameBoard.addMarker(row, column, getActivePlayer().marker);
+
+        //handle winner logic here.
+
+        //then switch player and return updated state of board
+        switchPlayerTurn();
+        printNewRound();
+
+    }
+
+    return { playRound, getActivePlayer }
 }
 
-const gameBoard = createGameBoard()
-gameBoard.printBoard()
+const game = controlGame();
 
-gameBoard.addMarker(0, 1);
-// gameBoard.addMarker(2, 1);
-// gameBoard.addMarker(2, 1);
+game.playRound(2, 2);
+game.playRound(0, 0);
