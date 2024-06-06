@@ -81,6 +81,12 @@ function controlGame(
         activePlayer = activePlayer === players[0] ? players[1] : players[0];
     }
 
+    const getActivePlayer = () => activePlayer;
+
+    const printNewRound = () => {
+        gameBoard.printBoard();
+        console.log(`Its ${getActivePlayer().name}'s turn to play!`)
+    }
 }
 
 const gameBoard = createGameBoard()
