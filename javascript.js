@@ -52,6 +52,30 @@ function createCell() {
     return { addPlayerMarker, getCellValue };
 }
 
+
+function controlGame(
+    playerOneName = "Player One",
+    playerTwoName = "Player Two",
+) {
+
+    const gameBoard = createGameBoard();
+
+    const players = 
+    [
+        {
+            name: playerOneName,
+            marker: "x"
+        },
+
+        {
+            name: playerTwoName,
+            marker: "o"
+        }
+
+    ];
+
+}
+
 const gameBoard = createGameBoard()
 gameBoard.printBoard()
 
