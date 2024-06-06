@@ -18,9 +18,9 @@ function createGameBoard() {
 
     const getBoard = () => board;
 
-    const addMarker = (row, column, player) => {
+    const placeMarker = (row, column, player) => {
         if (board[row][column].getCellValue() === 0) {
-            board[row][column].addPlayerMarker(player);
+            board[row][column].placePlayerMarker(player);
         } else {
             //wrong move, a marker is already here
             return;
@@ -32,7 +32,7 @@ function createGameBoard() {
         console.log(boardWithCellValues)
     }
 
-    return { getBoard, addMarker, printBoard }
+    return { getBoard, placeMarker, printBoard }
 
 }
 
@@ -41,14 +41,14 @@ function createCell() {
     let cellValue = 0;
 
     //player would be able to change the value of the cell
-    const addPlayerMarker = (player) => {
+    const placePlayerMarker = (player) => {
         cellValue = player;
     }
 
     //get the value of the cell
     const getCellValue = () => cellValue;
 
-    return { addPlayerMarker, getCellValue };
+    return { placePlayerMarker, getCellValue };
 }
 
 
@@ -91,7 +91,7 @@ function controlGame(
         //Place a marker for the current player
         console.log(`Placing ${getActivePlayer().name}'s marker on row ${row}, column ${column}...`);
 
-        gameBoard.addMarker(row, column, getActivePlayer().marker);
+        gameBoard.placeMarker(row, column, getActivePlayer().marker);
 
         //handle winner logic here.
 
@@ -100,6 +100,8 @@ function controlGame(
         printNewRound();
 
     }
+
+    printNewRound();
 
     return { playRound, getActivePlayer }
 }
