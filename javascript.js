@@ -74,6 +74,13 @@ function controlGame(
 
     ];
 
+    let activePlayer = players[0];
+
+    //toggle active player
+    const switchPlayerTurn = () => {
+        activePlayer = activePlayer === players[0] ? players[1] : players[0];
+    }
+
 }
 
 const gameBoard = createGameBoard()
