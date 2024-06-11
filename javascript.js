@@ -32,6 +32,9 @@ function createGameBoard() {
         console.log(boardWithCellValues)
     }
 
+    const returnBoard = () => board.map((row) => row.map((cell) => cell.getCellValue()));
+
+
     return { getBoard, placeMarker, printBoard }
 
 }
