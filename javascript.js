@@ -35,7 +35,7 @@ function createGameBoard() {
     const returnBoard = () => board.map((row) => row.map((cell) => cell.getCellValue()));
 
 
-    return { getBoard, placeMarker, printBoard }
+    return { getBoard, placeMarker, printBoard, returnBoard }
 
 }
 
@@ -88,6 +88,15 @@ function controlGame(
     const printNewRound = () => {
         gameBoard.printBoard();
         console.log(`Its ${getActivePlayer().name}'s turn to play!`)
+    }
+
+    const getThreeValues = (start, offset) => {
+        let result = ""
+
+        for (let i = start; i < start + offset * 3; i += offset) {
+            result += gameBoard.returnBoard()[Math.floor(i / 3)][i % 3];
+        }
+        return result;
     }
 
     const playRound = (row, column) => {
