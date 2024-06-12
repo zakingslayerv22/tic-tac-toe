@@ -66,12 +66,12 @@ function controlGame(
     [
         {
             name: playerOneName,
-            marker: 1
+            marker: "x"
         },
 
         {
             name: playerTwoName,
-            marker: 2
+            marker: "o"
         }
 
     ];
@@ -99,6 +99,38 @@ function controlGame(
         return result;
     }
 
+    const checkForWinner = () => {
+        const winningCombos = [];
+
+        //rows
+        winningCombos.push(getThreeValues(0, 1));//1,2,3
+        winningCombos.push(getThreeValues(3, 1));//3,4,5
+        winningCombos.push(getThreeValues(6, 1));//6,7,8
+
+        //columns
+        winningCombos.push(getThreeValues(0, 3));//0,3,6
+        winningCombos.push(getThreeValues(1, 3));//1,4,7
+        winningCombos.push(getThreeValues(2, 3));//2,5,8
+
+        //diagonals
+
+        winningCombos.push(getThreeValues(0, 4));//0,4,8
+        winningCombos.push(getThreeValues(2, 2));//2,4,5
+
+        
+
+        const playerOneWins = winningCombos.includes("xxx");
+        const playerTwoWins = winningCombos.includes("ooo");
+        
+        
+        if (playerOneWins) {
+            console.log(`${players[0].name} wins!`)
+        } else {
+            console.log(`${players[1].name} wins!`)
+        }
+ 
+    }   
+
     const playRound = (row, column) => {
         //Place a marker for the current player
         console.log(`Placing ${getActivePlayer().name}'s marker on row ${row}, column ${column}...`);
@@ -106,11 +138,13 @@ function controlGame(
         gameBoard.placeMarker(row, column, getActivePlayer().marker);
 
         //handle winner logic here.
-
+        
         //then switch player and return updated state of board
         switchPlayerTurn();
         printNewRound();
 
+        checkForWinner();
+        
     }
 
     printNewRound();
@@ -120,5 +154,9 @@ function controlGame(
 
 const game = controlGame();
 
-game.playRound(2, 2);
+//x wins
 game.playRound(0, 0);
+game.playRound(0, 1);
+game.playRound(1, 0);
+game.playRound(1, 2);
+game.playRound(2, 0);
