@@ -99,6 +99,8 @@ function controlGame(
         return result;
     }
 
+   
+
     const checkForWinner = () => {
         const winningCombos = [];
 
@@ -125,18 +127,27 @@ function controlGame(
         
         if (playerOneWins) {
             console.log(`${players[0].name} wins!`)
-        } else {
+        } else if (playerTwoWins){
             console.log(`${players[1].name} wins!`)
         }
  
-    }   
+    } 
+    
+    let playersMoves = 0
+
+    const checkForTie= () => {
+        if (playersMoves === 9) {
+            console.log("Its a tie")
+        }
+    }
 
     const playRound = (row, column) => {
         //Place a marker for the current player
         console.log(`Placing ${getActivePlayer().name}'s marker on row ${row}, column ${column}...`);
 
         gameBoard.placeMarker(row, column, getActivePlayer().marker);
-
+        //increment after each move
+        playersMoves++
         //handle winner logic here.
         
         //then switch player and return updated state of board
@@ -144,6 +155,8 @@ function controlGame(
         printNewRound();
 
         checkForWinner();
+        checkForTie()
+
         
     }
 
@@ -155,8 +168,20 @@ function controlGame(
 const game = controlGame();
 
 //x wins
+// game.playRound(0, 0);
+// game.playRound(0, 1);
+// game.playRound(1, 0);
+// game.playRound(1, 2);
+// game.playRound(2, 0);
+
+
+//draw
 game.playRound(0, 0);
 game.playRound(0, 1);
 game.playRound(1, 0);
 game.playRound(1, 2);
+game.playRound(0, 2);
+game.playRound(1, 1);
+game.playRound(2, 1);
 game.playRound(2, 0);
+game.playRound(2, 2);
