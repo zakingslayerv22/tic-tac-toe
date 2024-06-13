@@ -100,8 +100,10 @@ function controlGame(
     }
 
    
-
-    const checkForWinner = () => {
+   
+    let playersMoves = 0
+    
+    const checkWinnerOrTie = () => {
         const winningCombos = [];
 
         //rows
@@ -129,17 +131,14 @@ function controlGame(
             console.log(`${players[0].name} wins!`)
         } else if (playerTwoWins){
             console.log(`${players[1].name} wins!`)
+        } else if (playersMoves === 9) {
+            console.log ("Its a tie!")
         }
  
     } 
     
-    let playersMoves = 0
+   
 
-    const checkForTie= () => {
-        if (playersMoves === 9) {
-            console.log("Its a tie")
-        }
-    }
 
     const playRound = (row, column) => {
         //Place a marker for the current player
@@ -154,8 +153,7 @@ function controlGame(
         switchPlayerTurn();
         printNewRound();
 
-        checkForWinner();
-        checkForTie()
+        checkWinnerOrTie();
 
         
     }
