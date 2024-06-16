@@ -102,7 +102,7 @@ function controlGame(
    
    
     let playersMoves = 0
-    
+
     const checkWinnerOrTie = () => {
         const winningCombos = [];
 
@@ -125,16 +125,18 @@ function controlGame(
 
         const playerOneWins = winningCombos.includes("xxx");
         const playerTwoWins = winningCombos.includes("ooo");
+        const tie = (playersMoves === 9)
         
         
         if (playerOneWins) {
-            console.log(`${players[0].name} wins!`)
+            console.log(`${players[0].name} wins!`);
         } else if (playerTwoWins){
             console.log(`${players[1].name} wins!`)
-        } else if (playersMoves === 9) {
+        } else if (tie) {
             console.log ("Its a tie!")
         }
  
+        return playerOneWins || playerTwoWins || tie;
     } 
     
    
@@ -148,14 +150,10 @@ function controlGame(
         //increment after each move
         playersMoves++
         //handle winner logic here.
-        
+         const gameOver = checkWinnerOrTie();
         //then switch player and return updated state of board
         switchPlayerTurn();
         printNewRound();
-
-        checkWinnerOrTie();
-
-        
     }
 
     printNewRound();
@@ -167,11 +165,7 @@ const game = controlGame();
 
 //x wins
 // game.playRound(0, 0);
-// game.playRound(0, 1);
-// game.playRound(1, 0);
-// game.playRound(1, 2);
-// game.playRound(2, 0);
-
+// game.playRound(0, 1);switchPlayerTurn();
 
 //draw
 game.playRound(0, 0);
