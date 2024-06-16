@@ -158,8 +158,17 @@ function controlGame(
 
     printNewRound();
 
-    return { playMove, getActivePlayer }
+    return { playMove, getActivePlayer, getBoard: gameBoard.getBoard }
 }
+
+function screenController() {
+    const game = controlGame();
+    const playerTurnDiv = document.querySelector(".display-turn");
+    const boardDiv = document.querySelector(".board");
+
+}
+
+
 
 const game = controlGame();
 
@@ -182,3 +191,5 @@ game.playMove(2, 0);
 // game.playMove(2, 1);
 // game.playMove(2, 0);
 // game.playMove(2, 2);
+
+
