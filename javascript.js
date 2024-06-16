@@ -139,10 +139,10 @@ function controlGame(
         return playerOneWins || playerTwoWins || tie;
     } 
     
-   
 
 
-    const playRound = (row, column) => {
+
+    const playMove = (row, column) => {
         //Place a marker for the current player
         console.log(`Placing ${getActivePlayer().name}'s marker on row ${row}, column ${column}...`);
 
@@ -158,22 +158,27 @@ function controlGame(
 
     printNewRound();
 
-    return { playRound, getActivePlayer }
+    return { playMove, getActivePlayer }
 }
 
 const game = controlGame();
 
-//x wins
-// game.playRound(0, 0);
-// game.playRound(0, 1);switchPlayerTurn();
+//winning
+game.playMove(0, 0);
+game.playMove(0, 1);
+game.playMove(1, 0);
+game.playMove(1, 2);
+game.playMove(2, 0);
+// game.playMove(1, 1);
+
 
 //draw
-game.playRound(0, 0);
-game.playRound(0, 1);
-game.playRound(1, 0);
-game.playRound(1, 2);
-game.playRound(0, 2);
-game.playRound(1, 1);
-game.playRound(2, 1);
-game.playRound(2, 0);
-game.playRound(2, 2);
+// game.playMove(0, 0);
+// game.playMove(0, 1);
+// game.playMove(1, 0);
+// game.playMove(1, 2);
+// game.playMove(0, 2);
+// game.playMove(1, 1);
+// game.playMove(2, 1);
+// game.playMove(2, 0);
+// game.playMove(2, 2);
