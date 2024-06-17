@@ -166,9 +166,29 @@ function screenController() {
     const playerTurnDiv = document.querySelector(".display-turn");
     const boardDiv = document.querySelector(".board");
 
+
+    const updateDisplay = () => {
+        //clear the board
+        boardDiv.textContent = "";
+
+        //get the newest version of board and
+        //which player's turn it is to play
+
+        const board = game.getBoard();
+        const activePlayer = game.getActivePlayer();
+
+        //Display player's turn
+
+        playerTurnDiv.textContent = `${activePlayer.name}'s turn to play...`
+
+    }
+
+    //render the display when game starts
+    updateDisplay();
+
 }
 
-
+screenController();
 
 const game = controlGame();
 
