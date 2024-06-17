@@ -181,6 +181,24 @@ function screenController() {
 
         playerTurnDiv.textContent = `${activePlayer.name}'s turn to play...`
 
+        //render board squares
+
+        board.forEach((row, rowIndex) => {
+            row.forEach((cell, colIndex) => {
+                //Create buttons
+                const cellButton = document.createElement("button");
+                cellButton.classList.add("cell");
+
+                //give it a data attribute which is its index
+                cellButton.dataset.row = rowIndex;
+                cellButton.dataset.column = colIndex;
+                cellButton.textContent = cell.getCellValue();
+                boardDiv.appendChild(cellButton);
+
+
+            })
+        })
+
     }
 
     //render the display when game starts
