@@ -155,6 +155,9 @@ function controlGame(
 
         switchPlayerTurn();
         printNewRound();
+
+        checkForWinner();
+        
     }
 
     printNewRound();
