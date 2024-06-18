@@ -201,6 +201,17 @@ function screenController() {
 
     }
 
+function handleBoardClicks (event) {
+    const selectedRow = event.target.dataset.row;
+    const selectedColumn = event.target.dataset.column;
+
+    //make sure the click happens on the  
+    if (!selectedRow && !selectedColumn) return;
+
+
+
+}
+
     //render the display when game starts
     updateDisplay();
 
