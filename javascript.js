@@ -152,6 +152,7 @@ function controlGame(
         //handle winner logic here.
          const gameOver = checkWinnerOrTie();
         //then switch player and return updated state of board
+        
         switchPlayerTurn();
         printNewRound();
     }
@@ -208,9 +209,14 @@ function handleBoardClicks (event) {
     //make sure the click happens on the  
     if (!selectedRow && !selectedColumn) return;
 
+    //play the move
+    game.playMove(selectedRow, selectedColumn);
 
+    updateDisplay();
 
 }
+
+boardDiv.addEventListener("click", handleBoardClicks)
 
     //render the display when game starts
     updateDisplay();
