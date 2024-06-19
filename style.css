@@ -9,3 +9,7 @@
     padding: 2px;
     background-color: green;
 }
+
+.cell {
+    font-size: 4rem;
+}

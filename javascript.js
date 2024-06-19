@@ -15,6 +15,9 @@ function createGameBoard() {
         }
     }
 
+    const resetBoard = () => {
+        board.forEach((row) => row.forEach((cell) => cell.resetCell()));
+    }
 
     const getBoard = () => board;
 
@@ -35,13 +38,15 @@ function createGameBoard() {
     const returnBoard = () => board.map((row) => row.map((cell) => cell.getCellValue()));
 
 
-    return { getBoard, placeMarker, printBoard, returnBoard }
+    return { getBoard, placeMarker, printBoard, returnBoard, resetBoard}
 
 }
 
 function createCell() {
     //default cell value
     let cellValue = 0;
+
+    const resetCell = () => cellValue = 0;
 
     //player would be able to change the value of the cell
     const placePlayerMarker = (player) => {
@@ -51,7 +56,7 @@ function createCell() {
     //get the value of the cell
     const getCellValue = () => cellValue;
 
-    return { placePlayerMarker, getCellValue };
+    return { placePlayerMarker, getCellValue, resetCell };
 }
 
 
@@ -66,17 +71,22 @@ function controlGame(
     [
         {
             name: playerOneName,
-            marker: "x"
+            marker: "1"
         },
 
         {
             name: playerTwoName,
-            marker: "o"
+            marker: "2"
         }
 
     ];
 
     let activePlayer = players[0];
+
+    //reset active player
+    const resetActivePlayer = () => {
+        activePlayer = players[0];
+    };
 
     //toggle active player
     const switchPlayerTurn = () => {
@@ -123,8 +133,8 @@ function controlGame(
 
         
 
-        const playerOneWins = winningCombos.includes("xxx");
-        const playerTwoWins = winningCombos.includes("ooo");
+        const playerOneWins = winningCombos.includes("111");
+        const playerTwoWins = winningCombos.includes("222");
         const tie = (playersMoves === 9)
         
         
@@ -135,10 +145,9 @@ function controlGame(
         } else if (tie) {
             console.log ("Its a tie!")
         }
- 
+
         return playerOneWins || playerTwoWins || tie;
     } 
-    
 
 
 
