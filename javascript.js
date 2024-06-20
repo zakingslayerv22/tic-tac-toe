@@ -94,10 +94,19 @@ function controlGame(
     }
 
     const getActivePlayer = () => activePlayer;
+    
 
     const printNewRound = () => {
         gameBoard.printBoard();
         console.log(`Its ${getActivePlayer().name}'s turn to play!`)
+    }
+
+    let playersMoves = 0
+
+    const resetGame = () => {
+        gameBoard.resetBoard();
+        resetActivePlayer();
+        playersMoves = 0;
     }
 
     const getThreeValues = (start, offset) => {
@@ -110,9 +119,6 @@ function controlGame(
     }
 
    
-   
-    let playersMoves = 0
-
     const checkWinnerOrTie = () => {
         const winningCombos = [];
 
@@ -161,12 +167,14 @@ function controlGame(
         //handle winner logic here.
          const gameOver = checkWinnerOrTie();
         //then switch player and return updated state of board
-
-        switchPlayerTurn();
-        printNewRound();
-
-        checkForWinner();
+        if (gameOver) {
+            resetGame();
+        } else {
+            switchPlayerTurn();
+            printNewRound();
+        }
         
+
     }
 
     printNewRound();
