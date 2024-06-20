@@ -183,7 +183,7 @@ function controlGame(
 
     printNewRound();
 
-    return { playMove, getActivePlayer, getBoard: gameBoard.getBoard }
+    return { playMove, getActivePlayer, resetGame, getBoard: gameBoard.getBoard }
 }
 
 function screenController() {
@@ -237,15 +237,25 @@ function handleBoardClicks (event) {
 
     //play the move if the cell is not taken
     if (event.target.textContent === "0") {
-        game.playMove(selectedRow, selectedColumn);
+        const gameResult = game.playMove(selectedRow, selectedColumn);
+        updateDisplay()
+
+        if (gameResult) {
+            playerTurnDiv.textContent = gameResult;
+            resetButton.disabled = false;
+        }
     }
     
-
-    updateDisplay();
 
 }
 
 boardDiv.addEventListener("click", handleBoardClicks)
+
+resetButton.addEventListener("click", () => {
+    game.resetGame();
+    updateDisplay();
+    resetButton.disabled = true;
+})
 
     //render the display when game starts
     updateDisplay();
