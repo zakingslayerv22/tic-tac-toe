@@ -187,6 +187,8 @@ function screenController() {
     const playerTurnDiv = document.querySelector(".display-turn");
     const boardDiv = document.querySelector(".board");
 
+    const resetButton = document.querySelector(".reset-game");
+    resetButton.disabled = true;
 
     const updateDisplay = () => {
         //clear the board
