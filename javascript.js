@@ -146,13 +146,16 @@ function controlGame(
         
         if (playerOneWins) {
             console.log(`${players[0].name} wins!`);
+            return `${players[0].name} wins!`;
         } else if (playerTwoWins){
             console.log(`${players[1].name} wins!`)
+            return `${players[1].name} wins!`;
         } else if (tie) {
             console.log ("Its a tie!")
+            return `Its a tie!`
         }
 
-        return playerOneWins || playerTwoWins || tie;
+        return null;
     } 
 
 
@@ -165,15 +168,16 @@ function controlGame(
         //increment after each move
         playersMoves++
         //handle winner logic here.
-         const gameOver = checkWinnerOrTie();
+        const gameResult = checkWinnerOrTie();
         //then switch player and return updated state of board
-        if (gameOver) {
-            resetGame();
+        if (gameResult) {
+            return gameResult;
         } else {
             switchPlayerTurn();
             printNewRound();
         }
         
+        return null;
 
     }
 
