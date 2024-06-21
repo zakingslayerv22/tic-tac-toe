@@ -102,7 +102,7 @@ function controlGame(
     }
 
     let playersMoves = 0
-
+   
     const resetGame = () => {
         gameBoard.resetBoard();
         resetActivePlayer();
@@ -118,7 +118,6 @@ function controlGame(
         return result;
     }
 
-   
     const checkWinnerOrTie = () => {
         const winningCombos = [];
 
@@ -141,9 +140,10 @@ function controlGame(
 
         const playerOneWins = winningCombos.includes("111");
         const playerTwoWins = winningCombos.includes("222");
-        const tie = (playersMoves === 9)
+        const tie = (playersMoves === 9);
         
-        
+
+
         if (playerOneWins) {
             console.log(`${players[0].name} wins!`);
             return `${players[0].name} wins!`;
@@ -157,7 +157,6 @@ function controlGame(
 
         return null;
     } 
-
 
 
     const playMove = (row, column) => {
@@ -190,6 +189,12 @@ function screenController() {
     const game = controlGame();
     const playerTurnDiv = document.querySelector(".display-turn");
     const boardDiv = document.querySelector(".board");
+
+    let playerOneStreak = 0;
+    let playerTwoStreak = 0
+
+    const playerOneScore = document.querySelector(".player-one-score");
+    const playerTwoScore = document.querySelector(".player-two-score");
 
     const resetButton = document.querySelector(".reset-game");
     resetButton.disabled = true;
@@ -244,9 +249,20 @@ function handleBoardClicks (event) {
             playerTurnDiv.textContent = gameResult;
             resetButton.disabled = false;
         }
-    }
-    
 
+        if (gameResult === "Player One wins!") {
+            playerOneStreak++;
+            playerTwoStreak = 0;
+        } else if (gameResult === "Player Two wins!") {
+            playerTwoStreak++;
+            playerOneStreak = 0;
+        } else if (gameResult === "its a tie!") {
+            playerOneStreak = 0;
+            playerOneStreak = 0;
+        }
+    }
+    playerOneScore.textContent = `Player One: ${playerOneStreak}`;
+    playerTwoScore.textContent = `Player Two: ${playerTwoStreak}`; 
 }
 
 boardDiv.addEventListener("click", handleBoardClicks)
@@ -264,7 +280,7 @@ resetButton.addEventListener("click", () => {
 
 screenController();
 
-const game = controlGame();
+const game = controlGame("storm", "count");
 
 //winning
 game.playMove(0, 0);
