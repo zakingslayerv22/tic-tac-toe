@@ -146,13 +146,13 @@ function controlGame(
 
         if (playerOneWins) {
             console.log(`${players[0].name} wins!`);
-            return `${players[0].name} wins!`;
+            return { result: "win", winner: players[0].name };
         } else if (playerTwoWins){
             console.log(`${players[1].name} wins!`)
-            return `${players[1].name} wins!`;
+            return { result: "win", winner: players[1].name };
         } else if (tie) {
             console.log ("Its a tie!")
-            return `Its a tie!`
+            return { result: "tie" }
         }
 
         return null;
@@ -182,7 +182,7 @@ function controlGame(
 
     printNewRound();
 
-    return { playMove, getActivePlayer, resetGame, getBoard: gameBoard.getBoard }
+    return { players, playMove, getActivePlayer, resetGame, getBoard: gameBoard.getBoard }
 }
 
 function screenController() {
