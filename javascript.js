@@ -191,13 +191,16 @@ function screenController() {
     const boardDiv = document.querySelector(".board");
 
     let playerOneStreak = 0;
-    let playerTwoStreak = 0
+    let playerTwoStreak = 0;
 
     const playerOneScore = document.querySelector(".player-one-score");
     const playerTwoScore = document.querySelector(".player-two-score");
 
     const resetButton = document.querySelector(".reset-game");
     resetButton.disabled = true;
+
+    const resetRound = document.querySelector(".new-round");
+    resetRound.disabled = true;
 
     const updateDisplay = () => {
         //clear the board
@@ -260,6 +263,11 @@ function handleBoardClicks (event) {
             playerOneStreak = 0;
             playerOneStreak = 0;
         }
+
+        if ((playerOneStreak === 3) || (playerTwoStreak === 3)) {
+            resetButton.disabled = true;
+            resetRound.disabled = false;
+        }
     }
     playerOneScore.textContent = `Player One: ${playerOneStreak}`;
     playerTwoScore.textContent = `Player Two: ${playerTwoStreak}`; 
@@ -271,6 +279,17 @@ resetButton.addEventListener("click", () => {
     game.resetGame();
     updateDisplay();
     resetButton.disabled = true;
+})
+
+resetRound.addEventListener("click", () => {
+    game.resetGame();
+    updateDisplay();
+    playerOneStreak = 0;
+    playerTwoStreak = 0;
+    playerOneScore.textContent = `Player One: ${playerOneStreak}`;
+    playerTwoScore.textContent = `Player Two: ${playerTwoStreak}`;
+    resetButton.disabled = true;
+    resetRound.disabled = true;
 })
 
     //render the display when game starts
