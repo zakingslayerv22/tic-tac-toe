@@ -250,29 +250,31 @@ function handleBoardClicks (event) {
 
         if (gameResult) {
             resetButton.disabled = false;
-        }
 
-        if (gameResult.result === "win") {
-            playerTurnDiv.textContent = `${gameResult.winner} wins!`;
-                
-            if (gameResult.winner === game.players[0].name)
-                playerOneStreak++;
-                playerTwoStreak = 0;
-            } else if (gameResult.winner === game.players[1].name) {
-                playerTwoStreak++;
+            if (gameResult.result === "win") {
+                playerTurnDiv.textContent = `${gameResult.winner} wins!`;
+                    
+                if (gameResult.winner === game.players[0].name)
+                    playerOneStreak++;
+                    playerTwoStreak = 0;
+                } else if (gameResult.winner === game.players[1].name) {
+                    playerTwoStreak++;
+                    playerOneStreak = 0;
+                } 
+            
+            if (gameResult.result === "tie") {
+                playerTurnDiv.textContent = "It's a tie!"
                 playerOneStreak = 0;
-            } 
-        
-        if (gameResult.result === "tie") {
-            playerTurnDiv.textContent = "It's a tie!"
-            playerOneStreak = 0;
-            playerOneStreak = 0;
+                playerOneStreak = 0;
+            }
+    
+            if ((playerOneStreak === 3) || (playerTwoStreak === 3)) {
+                resetButton.disabled = true;
+                resetRound.disabled = false;
+            }
         }
 
-        if ((playerOneStreak === 3) || (playerTwoStreak === 3)) {
-            resetButton.disabled = true;
-            resetRound.disabled = false;
-        }
+
     }
     playerOneScore.textContent = `${game.players[0].name}: ${playerOneStreak}`;
     playerTwoScore.textContent = `${game.players[1].name}: ${playerTwoStreak}`; 
