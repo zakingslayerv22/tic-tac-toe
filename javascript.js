@@ -186,7 +186,7 @@ function controlGame(
 }
 
 function screenController() {
-    const game = controlGame();
+    const game = controlGame("John", "Wick");
     const playerTurnDiv = document.querySelector(".display-turn");
     const boardDiv = document.querySelector(".board");
 
@@ -249,17 +249,22 @@ function handleBoardClicks (event) {
         updateDisplay()
 
         if (gameResult) {
-            playerTurnDiv.textContent = gameResult;
             resetButton.disabled = false;
         }
 
-        if (gameResult === "Player One wins!") {
-            playerOneStreak++;
-            playerTwoStreak = 0;
-        } else if (gameResult === "Player Two wins!") {
-            playerTwoStreak++;
-            playerOneStreak = 0;
-        } else if (gameResult === "its a tie!") {
+        if (gameResult.result === "win") {
+            playerTurnDiv.textContent = `${gameResult.winner} wins!`;
+                
+            if (gameResult.winner === game.players[0].name)
+                playerOneStreak++;
+                playerTwoStreak = 0;
+            } else if (gameResult.winner === game.players[1].name) {
+                playerTwoStreak++;
+                playerOneStreak = 0;
+            } 
+        
+        if (gameResult.result === "tie") {
+            playerTurnDiv.textContent = "It's a tie!"
             playerOneStreak = 0;
             playerOneStreak = 0;
         }
@@ -269,8 +274,8 @@ function handleBoardClicks (event) {
             resetRound.disabled = false;
         }
     }
-    playerOneScore.textContent = `Player One: ${playerOneStreak}`;
-    playerTwoScore.textContent = `Player Two: ${playerTwoStreak}`; 
+    playerOneScore.textContent = `${game.players[0].name}: ${playerOneStreak}`;
+    playerTwoScore.textContent = `${game.players[1].name}: ${playerTwoStreak}`; 
 }
 
 boardDiv.addEventListener("click", handleBoardClicks)
