@@ -234,6 +234,9 @@ function screenController() {
             })
         })
 
+        playerOneScore.textContent = `${game.players[0].name}: ${playerOneStreak}`;
+        playerTwoScore.textContent = `${game.players[1].name}: ${playerTwoStreak}`; 
+
     }
 
 function handleBoardClicks (event) {
@@ -249,6 +252,7 @@ function handleBoardClicks (event) {
         updateDisplay()
 
         if (gameResult) {
+            updateDisplay()
             resetButton.disabled = false;
 
             if (gameResult.result === "win") {
@@ -273,9 +277,8 @@ function handleBoardClicks (event) {
                 resetRound.disabled = false;
             }
         }
-
-
     }
+  
     playerOneScore.textContent = `${game.players[0].name}: ${playerOneStreak}`;
     playerTwoScore.textContent = `${game.players[1].name}: ${playerTwoStreak}`; 
 }
@@ -293,8 +296,8 @@ resetRound.addEventListener("click", () => {
     updateDisplay();
     playerOneStreak = 0;
     playerTwoStreak = 0;
-    playerOneScore.textContent = `Player One: ${playerOneStreak}`;
-    playerTwoScore.textContent = `Player Two: ${playerTwoStreak}`;
+    playerOneScore.textContent = `${game.players[0].name}: ${playerOneStreak}`;
+    playerTwoScore.textContent = `${game.players[1].name} ${playerTwoStreak}`;
     resetButton.disabled = true;
     resetRound.disabled = true;
 })
