@@ -187,14 +187,35 @@ function controlGame(
 
 function screenController() {
     const game = controlGame("John", "Wick");
-    const playerTurnDiv = document.querySelector(".display-turn");
-    const boardDiv = document.querySelector(".board");
+
+    const gameContainer = document.createElement("div")
+    gameContainer.classList.add("container");
+
+    const playerTurnDiv = document.createElement("h1");
+    playerTurnDiv.classList.add("display-turn");
+
+    const boardDiv = document.createElement("div");
+    boardDiv.classList.add("board");
+
+    const playerOneScore = document.createElement("div");
+    playerOneScore.classList.add(".player-one-score");
+
+    const playerTwoScore = document.createElement("div");
+    playerTwoScore.classList.add(".player-two-score");
+
+    document.body.appendChild(gameContainer);
+    gameContainer.appendChild(playerTurnDiv);
+    gameContainer.appendChild(boardDiv);
+    gameContainer.appendChild(playerOneScore);
+    gameContainer.appendChild(playerTwoScore);
+
+    // gameContainer.replaceChildren();
+
+    // const boardDiv = document.querySelector(".board");
 
     let playerOneStreak = 0;
     let playerTwoStreak = 0;
 
-    const playerOneScore = document.querySelector(".player-one-score");
-    const playerTwoScore = document.querySelector(".player-two-score");
 
     const resetButton = document.querySelector(".reset-game");
     resetButton.disabled = true;
@@ -300,7 +321,7 @@ resetRound.addEventListener("click", () => {
     playerTwoScore.textContent = `${game.players[1].name} ${playerTwoStreak}`;
     resetButton.disabled = true;
     resetRound.disabled = true;
-})
+});
 
     //render the display when game starts
     updateDisplay();
