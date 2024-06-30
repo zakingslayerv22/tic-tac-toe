@@ -185,10 +185,13 @@ function controlGame(
     return { players, playMove, getActivePlayer, resetGame, getBoard: gameBoard.getBoard }
 }
 
-function screenController() {
-    const game = controlGame("John", "Wick");
 
-    const gameContainer = document.createElement("div")
+
+function screenController(playerOneName, playerTwoName) {
+    const game = controlGame(playerOneName, playerTwoName);
+
+    const gameContainer = document.createElement("div");
+  
     gameContainer.classList.add("container");
 
     const playerTurnDiv = document.createElement("h1");
@@ -328,7 +331,6 @@ resetRound.addEventListener("click", () => {
 
 }
 
-screenController();
 
 const game = controlGame("storm", "count");
 
