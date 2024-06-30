@@ -331,6 +331,74 @@ resetRound.addEventListener("click", () => {
 
 }
 
+function newGame() {
+    // gameContainer.classList.remove("container");
+    // gameContainer.classList.add("game-container-hidden");
+    const formDiv = document.createElement("div");
+    formDiv.classList.add("form-div");
+    
+
+    const form = document.createElement("form");
+    form.classList.add("form");
+
+    //player one
+    const playerOneDiv = document.createElement("div");
+    playerOneDiv.classList.add("player-one");
+
+    const playerOneLabel = document.createElement("label");
+    playerOneLabel.setAttribute("for", "player-one-name");
+    playerOneLabel.textContent = "Player One Name: "
+
+    const playerOneName = document.createElement("input");
+    playerOneName.setAttribute("type", "text");
+    playerOneName.setAttribute("id", "player-one-name");
+
+    //player two
+    const playerTwoDiv = document.createElement("div");
+    playerTwoDiv.classList.add("player-two");
+
+    const playerTwoLabel = document.createElement("label");
+    playerTwoLabel.setAttribute("for", "player-two-name");
+    playerTwoLabel.textContent = "Player Two Name: "
+
+    const playerTwoName = document.createElement("input");
+    playerTwoName.setAttribute("type", "text");
+    playerTwoName.setAttribute("id", "player-two-name");
+
+    const startGameButton = document.createElement("button");
+    startGameButton.classList.add("start-button");
+    startGameButton.setAttribute("type", "button");
+    startGameButton.textContent = "Start Game";
+    
+
+
+    document.body.appendChild(formDiv);
+    formDiv.appendChild(form);
+
+    //append player one
+    form.appendChild(playerOneDiv);
+    playerOneDiv.appendChild(playerOneLabel);
+    playerOneDiv.appendChild(playerOneName);
+
+    //append player two
+    form.appendChild(playerTwoDiv);
+    playerTwoDiv.appendChild(playerTwoLabel);
+    playerTwoDiv.appendChild(playerTwoName);
+
+    //append button 
+    formDiv.appendChild(startGameButton);
+
+
+    startGameButton.addEventListener("click", () => {
+        formDiv.classList.remove("form-div");
+        formDiv.classList.add("form-div-hidden");
+        screenController(playerOneName.value, playerTwoName.value);
+        
+    });
+ 
+}
+
+newGame()
 
 const game = controlGame("storm", "count");
 
