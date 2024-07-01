@@ -15,6 +15,10 @@
 }
 
 
+.game-container-hidden {
+    display: none;
+}
+
 .form-div {
     /* border: 2px solid red; */
     width: 300px;

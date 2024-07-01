@@ -191,8 +191,11 @@ function screenController(playerOneName, playerTwoName) {
     const game = controlGame(playerOneName, playerTwoName);
 
     const gameContainer = document.createElement("div");
-  
-    gameContainer.classList.add("container");
+    gameContainer.classList.add("game-container");
+
+    const newGameButton = document.createElement("button");
+    newGameButton.classList.add("board-new-game");
+    newGameButton.textContent = "New Game";
 
     const playerTurnDiv = document.createElement("h1");
     playerTurnDiv.classList.add("display-turn");
@@ -207,6 +210,7 @@ function screenController(playerOneName, playerTwoName) {
     playerTwoScore.classList.add(".player-two-score");
 
     document.body.appendChild(gameContainer);
+    gameContainer.appendChild(newGameButton);
     gameContainer.appendChild(playerTurnDiv);
     gameContainer.appendChild(boardDiv);
     gameContainer.appendChild(playerOneScore);
@@ -325,6 +329,15 @@ resetRound.addEventListener("click", () => {
     resetButton.disabled = true;
     resetRound.disabled = true;
 });
+
+
+newGameButton.addEventListener("click", () => {
+    gameContainer.classList.remove("game-container");
+    gameContainer.classList.add("game-container-hidden");
+    newGame();
+});
+
+
 
     //render the display when game starts
     updateDisplay();
