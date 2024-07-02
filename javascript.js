@@ -332,8 +332,7 @@ resetRound.addEventListener("click", () => {
 
 
 newGameButton.addEventListener("click", () => {
-    gameContainer.classList.remove("game-container");
-    gameContainer.classList.add("game-container-hidden");
+    gameContainer.remove()
     newGame();
 });
 
@@ -403,8 +402,7 @@ function newGame() {
 
 
     startGameButton.addEventListener("click", () => {
-        formDiv.classList.remove("form-div");
-        formDiv.classList.add("form-div-hidden");
+        formDiv.remove()
         screenController(playerOneName.value, playerTwoName.value);
         
     });

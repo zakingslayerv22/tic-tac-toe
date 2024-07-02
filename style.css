@@ -15,9 +15,6 @@
 }
 
 
-.game-container-hidden {
-    display: none;
-}
 
 .form-div {
     /* border: 2px solid red; */
@@ -26,6 +23,3 @@
     
 }
 
-.form-div-hidden {
-    display: none;
-}
