@@ -190,6 +190,8 @@ function controlGame(
 function screenController(playerOneName, playerTwoName) {
     const game = controlGame(playerOneName, playerTwoName);
 
+    const infoDialog = document.querySelector("#winner-info-dialog");
+
     const gameContainer = document.createElement("div");
     gameContainer.classList.add("game-container");
 
@@ -282,6 +284,7 @@ function handleBoardClicks (event) {
         if (gameResult) {
             updateDisplay()
             resetButton.disabled = false;
+            infoDialog.showModal();
 
             if (gameResult.result === "win") {
                 playerTurnDiv.textContent = `${gameResult.winner} wins!`;
@@ -297,7 +300,7 @@ function handleBoardClicks (event) {
             if (gameResult.result === "tie") {
                 playerTurnDiv.textContent = "It's a tie!"
                 playerOneStreak = 0;
-                playerOneStreak = 0;
+                playerOneStreak = 0;              
             }
     
             if ((playerOneStreak === 3) || (playerTwoStreak === 3)) {
@@ -317,6 +320,7 @@ resetButton.addEventListener("click", () => {
     game.resetGame();
     updateDisplay();
     resetButton.disabled = true;
+    infoDialog.close()
 })
 
 resetRound.addEventListener("click", () => {
@@ -328,6 +332,7 @@ resetRound.addEventListener("click", () => {
     playerTwoScore.textContent = `${game.players[1].name} ${playerTwoStreak}`;
     resetButton.disabled = true;
     resetRound.disabled = true;
+    infoDialog.close()
 });
 
 
