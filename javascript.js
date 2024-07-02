@@ -190,7 +190,9 @@ function controlGame(
 function screenController(playerOneName, playerTwoName) {
     const game = controlGame(playerOneName, playerTwoName);
 
+    //for the modal
     const infoDialog = document.querySelector("#winner-info-dialog");
+    const displayInfo = document.querySelector(".display-info");
 
     const gameContainer = document.createElement("div");
     gameContainer.classList.add("game-container");
@@ -288,7 +290,7 @@ function handleBoardClicks (event) {
 
             if (gameResult.result === "win") {
                 playerTurnDiv.textContent = `${gameResult.winner} wins!`;
-                    
+                displayInfo.textContent = `${gameResult.winner} takes this round!`;
                 if (gameResult.winner === game.players[0].name)
                     playerOneStreak++;
                     playerTwoStreak = 0;
@@ -299,6 +301,7 @@ function handleBoardClicks (event) {
             
             if (gameResult.result === "tie") {
                 playerTurnDiv.textContent = "It's a tie!"
+                displayInfo.textContent = "It's a tie!";
                 playerOneStreak = 0;
                 playerOneStreak = 0;              
             }
