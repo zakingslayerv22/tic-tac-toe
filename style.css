@@ -1,3 +1,8 @@
+body {
+    display: grid;
+    place-content: center;
+    height: 90vh;
+}
 .board {
     display: grid;
     width: 500px;
@@ -15,9 +20,8 @@
 }
 
 
-
 .form-div {
-    /* border: 2px solid red; */
+    border: 2px solid red;
     width: 300px;
     height: 300px;
     
