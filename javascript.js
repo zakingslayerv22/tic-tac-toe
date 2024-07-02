@@ -196,7 +196,7 @@ function screenController(playerOneName, playerTwoName) {
     gameContainer.classList.add("game-container");
 
     const newGameButton = document.createElement("button");
-    newGameButton.classList.add("board-new-game");
+    newGameButton.classList.add("new-game-button");
     newGameButton.textContent = "New Game";
 
     const playerTurnDiv = document.createElement("h1");
@@ -336,10 +336,17 @@ resetRound.addEventListener("click", () => {
 });
 
 
-newGameButton.addEventListener("click", () => {
+const allNewGameButtons = document.querySelectorAll(".new-game-button");
+
+allNewGameButtons.forEach(button => button.addEventListener("click", () => {
     gameContainer.remove()
     newGame();
-});
+    if (infoDialog.hasAttribute("open")) {
+        infoDialog.close();
+    }
+}));
+
+
 
 
 
