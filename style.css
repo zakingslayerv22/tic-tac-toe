@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    border: 2px solid red;
 }
 
 body {
@@ -35,11 +36,11 @@ input {
 }
 
 .form-div {
+    border: 2px solid green;
     display: grid;
     place-content: center;
-    gap: 1rem;
-    border: 2px solid red;
-    width: 420px;
+    gap: 1.5rem;
+    width: 650px;
     height: 300px; 
     padding: 2rem; 
     
@@ -50,8 +51,13 @@ input {
     gap: 1rem;
 } 
 
+input[type="text"]{
+    font-size: 1.1rem;
+    height: 3rem;
+    padding: 0.9rem
+}
+
 .player-one, .player-two {
-    border: 2px solid red;
     display: grid;
     justify-items: center;
     gap: 1rem;
