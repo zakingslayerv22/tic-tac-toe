@@ -363,6 +363,11 @@ allNewGameButtons.forEach(button => button.addEventListener("click", () => {
 function newGame() {
     // gameContainer.classList.remove("container");
     // gameContainer.classList.add("game-container-hidden");
+
+    const gameTitle = document.createElement("h1");
+    gameTitle.classList.add("game-hi");
+    gameTitle.textContent = "tic-tac-toe";
+
     const formDiv = document.createElement("div");
     formDiv.classList.add("form-div");
     
@@ -400,7 +405,7 @@ function newGame() {
     startGameButton.textContent = "Start Game";
     
 
-
+    document.body.appendChild(gameTitle);
     document.body.appendChild(formDiv);
     formDiv.appendChild(form);
 
