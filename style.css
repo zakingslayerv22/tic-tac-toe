@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    border: 2px solid red;
+    /* border: 2px solid red; */
 }
 
 body {
@@ -62,5 +62,13 @@ input[type="text"]{
     justify-items: center;
     gap: 1rem;
     font-size: 1.5rem;
+}
+
+.start-button {
+    border: none;
+    font-size: 1.5rem;
+    padding: 0.8rem;
+    
+
 }
 
