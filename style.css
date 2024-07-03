@@ -29,6 +29,10 @@ input {
     font-size: 4rem;
 }
 
+.form-h1 {
+    display: grid;
+    place-content: center;
+}
 
 .form-div {
     display: grid;
@@ -48,5 +52,9 @@ input {
 
 .player-one, .player-two {
     border: 2px solid red;
+    display: grid;
+    justify-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
 }
 

@@ -365,7 +365,7 @@ function newGame() {
     // gameContainer.classList.add("game-container-hidden");
 
     const gameTitle = document.createElement("h1");
-    gameTitle.classList.add("game-hi");
+    gameTitle.classList.add("form-h1");
     gameTitle.textContent = "tic-tac-toe";
 
     const formDiv = document.createElement("div");
