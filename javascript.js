@@ -291,12 +291,14 @@ function handleBoardClicks (event) {
             if (gameResult.result === "win") {
                 playerTurnDiv.textContent = `${gameResult.winner} wins!`;
                 displayInfo.textContent = `${gameResult.winner} takes this round!`;
-                if (gameResult.winner === game.players[0].name)
-                    playerOneStreak++;
-                    playerTwoStreak = 0;
-                } else if (gameResult.winner === game.players[1].name) {
-                    playerTwoStreak++;
-                    playerOneStreak = 0;
+                    if (gameResult.winner === game.players[0].name) {
+                        playerOneStreak++;
+                        playerTwoStreak = 0;
+                    } else if (gameResult.winner === game.players[1].name) {
+                        playerTwoStreak++;
+                        playerOneStreak = 0;
+                    } 
+                    
                 } 
             
             if (gameResult.result === "tie") {
