@@ -364,6 +364,9 @@ function newGame() {
     // gameContainer.classList.remove("container");
     // gameContainer.classList.add("game-container-hidden");
 
+    const startPageContainer = document.createElement("div");
+    startPageContainer.classList.add("start-page-div");
+
     const gameTitle = document.createElement("h1");
     gameTitle.classList.add("form-h1");
     gameTitle.textContent = "tic-tac-toe";
@@ -404,9 +407,9 @@ function newGame() {
     startGameButton.setAttribute("type", "button");
     startGameButton.textContent = "Start Game";
     
-
-    document.body.appendChild(gameTitle);
-    document.body.appendChild(formDiv);
+    document.body.appendChild(startPageContainer);
+    startPageContainer.appendChild(gameTitle);
+    startPageContainer.appendChild(formDiv);
     formDiv.appendChild(form);
 
     //append player one
@@ -424,7 +427,7 @@ function newGame() {
 
 
     startGameButton.addEventListener("click", () => {
-        formDiv.remove()
+        startPageContainer.remove()
         screenController(playerOneName.value, playerTwoName.value);
         
     });
