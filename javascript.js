@@ -197,6 +197,16 @@ function screenController(playerOneName, playerTwoName) {
     const gameContainer = document.createElement("div");
     gameContainer.classList.add("game-container");
 
+    const boardHeader = document.createElement("div");
+    boardHeader.classList.add("board-header-div");
+
+    const gameTitle = document.createElement("h1");
+    gameTitle.classList.add("board-h1");
+    gameTitle.textContent = "tic-tac-toe";
+
+    const boardContainer = document.createElement("div");
+    boardContainer.classList.add("board-container");
+
     const newGameButton = document.createElement("button");
     newGameButton.classList.add("new-game-button");
     newGameButton.textContent = "New Game";
@@ -214,11 +224,14 @@ function screenController(playerOneName, playerTwoName) {
     playerTwoScore.classList.add(".player-two-score");
 
     document.body.appendChild(gameContainer);
-    gameContainer.appendChild(newGameButton);
-    gameContainer.appendChild(playerTurnDiv);
-    gameContainer.appendChild(boardDiv);
-    gameContainer.appendChild(playerOneScore);
-    gameContainer.appendChild(playerTwoScore);
+    gameContainer.appendChild(boardHeader);
+    boardHeader.appendChild(gameTitle);
+    gameContainer.appendChild(boardContainer);
+    boardContainer.appendChild(newGameButton);
+    boardContainer.appendChild(playerTurnDiv);
+    boardContainer.appendChild(boardDiv);
+    boardContainer.appendChild(playerOneScore);
+    boardContainer.appendChild(playerTwoScore);
 
     // gameContainer.replaceChildren();
 
