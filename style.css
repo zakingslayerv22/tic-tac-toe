@@ -1,14 +1,11 @@
 * {
     box-sizing: border-box;
-    /* border: 2px solid red; */
+    border: 2px solid red;
 }
 
 body {
     margin: 0;
     padding: 0;
-    display: grid;
-    place-content: center;
-    height: 90vh;
 }
 
 input {
@@ -77,3 +74,8 @@ input[type="text"]{
 
 }
 
+.start-page-div, .board-container {
+    display: grid;
+    place-content: center;
+    height: 90vh;
+}
