@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    /* border: 2px solid red; */
+    border: 2px solid red;
 }
 
 body {
@@ -10,21 +10,6 @@ body {
 
 input {
     outline: none;
-}
-.board {
-    display: grid;
-    width: 500px;
-    height: 500px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 2px;
-    border: 1px solid black;
-    padding: 2px;
-    background-color: green;
-}
-
-.cell {
-    font-size: 4rem;
 }
 
 .form-h1 {
@@ -95,5 +80,23 @@ input[type="text"]{
 
 .display-turn-h2 {
     justify-self: center;
+}
+
+.board {
+    display: grid;
+    width: 450px;
+    height: 450px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 3rem;
+    border: 1px solid black;
+    padding: 2px;
+    background-color: green;
+}
+
+.cell {
+    font-size: 4rem;
+    border-radius: 10px;
+
 }
 
