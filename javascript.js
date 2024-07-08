@@ -211,8 +211,8 @@ function screenController(playerOneName, playerTwoName) {
     newGameButton.classList.add("new-game-button");
     newGameButton.textContent = "New Game";
 
-    const playerTurnDiv = document.createElement("h1");
-    playerTurnDiv.classList.add("display-turn");
+    const playerTurnDiv = document.createElement("h2");
+    playerTurnDiv.classList.add("display-turn-h2");
 
     const boardDiv = document.createElement("div");
     boardDiv.classList.add("board");
