@@ -79,3 +79,14 @@ input[type="text"]{
     place-content: center;
     height: 90vh;
 }
+
+.board-header-div {
+    display: flex;
+    justify-content: space-around;
+}
+
+.new-game-button {
+    align-self: center;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+}
