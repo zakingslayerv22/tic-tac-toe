@@ -226,8 +226,8 @@ function screenController(playerOneName, playerTwoName) {
     document.body.appendChild(gameContainer);
     gameContainer.appendChild(boardHeader);
     boardHeader.appendChild(gameTitle);
+    boardHeader.appendChild(newGameButton);
     gameContainer.appendChild(boardContainer);
-    boardContainer.appendChild(newGameButton);
     boardContainer.appendChild(playerTurnDiv);
     boardContainer.appendChild(boardDiv);
     boardContainer.appendChild(playerOneScore);
