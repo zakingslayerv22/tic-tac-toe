@@ -63,12 +63,24 @@ input[type="text"]{
 .start-page-div, .board-container {
     display: grid;
     place-content: center;
-    height: 90vh;
+
 }
 
+.start-page-div {
+    height: 98vh;
+}
+/* Look here if things don't
+go as planned with the header */
+.game-container {
+    display: grid;
+    gap: 0.5rem;
+    grid-template-rows: 1fr 6fr 1fr;
+}
 .board-header-div {
     display: flex;
     justify-content: space-around;
+    padding: 1rem;
+
 }
 
 .new-game-button {
