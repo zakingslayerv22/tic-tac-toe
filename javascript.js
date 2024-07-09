@@ -217,6 +217,9 @@ function screenController(playerOneName, playerTwoName) {
     const boardDiv = document.createElement("div");
     boardDiv.classList.add("board");
 
+    const scoresDiv = document.createElement("div");
+    scoresDiv.classList.add("scores-div")
+
     const playerOneScore = document.createElement("div");
     playerOneScore.classList.add(".player-one-score");
 
@@ -230,8 +233,9 @@ function screenController(playerOneName, playerTwoName) {
     gameContainer.appendChild(boardContainer);
     boardContainer.appendChild(playerTurnDiv);
     boardContainer.appendChild(boardDiv);
-    boardContainer.appendChild(playerOneScore);
-    boardContainer.appendChild(playerTwoScore);
+    boardContainer.appendChild(scoresDiv)
+    scoresDiv.append(playerOneScore, playerTwoScore);
+   
 
     // gameContainer.replaceChildren();
 
