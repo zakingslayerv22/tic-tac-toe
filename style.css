@@ -85,6 +85,7 @@ go as planned with the header */
 .board-header-div {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     padding: 1rem;
 
 }
