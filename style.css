@@ -68,6 +68,13 @@ input[type="text"]{
 .start-page-div {
     height: 98vh;
 }
+
+#winner-info-dialog[open] {
+    margin: auto;
+    min-width: 100vw;
+    text-align: center;
+}
+
 /* Look here if things don't
 go as planned with the header */
 .game-container {
