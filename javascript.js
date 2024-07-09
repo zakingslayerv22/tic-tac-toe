@@ -220,6 +220,17 @@ function screenController(playerOneName, playerTwoName) {
     const scoresDiv = document.createElement("div");
     scoresDiv.classList.add("scores-div")
 
+    const playerOneScoreDiv = document.createElement("div");
+    playerOneScoreDiv.classList.add("player-one-container");
+
+    const playerOneMarker = document.createElement("div");
+    playerOneMarker.classList.add("player-one-marker");
+    playerOneMarker.textContent = "x"
+
+    const playerOneMoniker = document.createElement("div");
+    playerOneMoniker.classList.add("player-one-name");
+    playerOneMoniker.textContent = `${game.players[0].name}`
+
     const playerOneScore = document.createElement("div");
     playerOneScore.classList.add(".player-one-score");
 
@@ -233,8 +244,9 @@ function screenController(playerOneName, playerTwoName) {
     gameContainer.appendChild(boardContainer);
     boardContainer.appendChild(playerTurnDiv);
     boardContainer.appendChild(boardDiv);
-    boardContainer.appendChild(scoresDiv)
-    scoresDiv.append(playerOneScore, playerTwoScore);
+    boardContainer.appendChild(scoresDiv);
+    scoresDiv.append(playerOneScoreDiv, playerTwoScore);
+    playerOneScoreDiv.append(playerOneMarker, playerOneMoniker, playerOneScore)
    
 
     // gameContainer.replaceChildren();
@@ -283,7 +295,7 @@ function screenController(playerOneName, playerTwoName) {
             })
         })
 
-        playerOneScore.textContent = `${game.players[0].name}: ${playerOneStreak}`;
+        playerOneScore.textContent = `${playerOneStreak}`;
         playerTwoScore.textContent = `${game.players[1].name}: ${playerTwoStreak}`; 
 
     }
@@ -332,7 +344,7 @@ function handleBoardClicks (event) {
         }
     }
   
-    playerOneScore.textContent = `${game.players[0].name}: ${playerOneStreak}`;
+    playerOneScore.textContent = `${playerOneStreak}`;
     playerTwoScore.textContent = `${game.players[1].name}: ${playerTwoStreak}`; 
 }
 
@@ -350,7 +362,7 @@ resetRound.addEventListener("click", () => {
     updateDisplay();
     playerOneStreak = 0;
     playerTwoStreak = 0;
-    playerOneScore.textContent = `${game.players[0].name}: ${playerOneStreak}`;
+    playerOneScore.textContent = `${playerOneStreak}`;
     playerTwoScore.textContent = `${game.players[1].name} ${playerTwoStreak}`;
     resetButton.disabled = true;
     resetRound.disabled = true;
