@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     margin: 0;
     padding: 0;
 }
@@ -57,7 +57,6 @@ input[type="text"]{
     padding: 0.8rem;
     border-radius: 5px;
     
-
 }
 
 .start-page-div, .board-container {
@@ -95,10 +94,15 @@ go as planned with the header */
     justify-self: center;
 }
 
+.board-container {
+    display: grid;
+    gap: 1rem;
+}
+
 .board {
     display: grid;
-    width: 450px;
-    height: 450px;
+    width: 400px;
+    height: 400px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 3rem;
