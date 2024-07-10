@@ -188,7 +188,7 @@ function controlGame(
 
 
 function screenController(playerOneName, playerTwoName) {
-    const game = controlGame(playerOneName, playerTwoName);
+    const game = controlGame("Player One", "Player Two");
 
     //for the modal
     const infoDialog = document.querySelector("#winner-info-dialog");
@@ -234,7 +234,7 @@ function screenController(playerOneName, playerTwoName) {
     playerOneMoniker.textContent = `${game.players[0].name}`
 
     const playerOneScore = document.createElement("div");
-    playerOneScore.classList.add(".player-one-score");
+    playerOneScore.classList.add("player-one-score");
 
     //for player two
 
@@ -250,7 +250,7 @@ function screenController(playerOneName, playerTwoName) {
     playerTwoMoniker.textContent = `${game.players[1].name}`
 
     const playerTwoScore = document.createElement("div");
-    playerTwoScore.classList.add(".player-two-score");
+    playerTwoScore.classList.add("player-two-score");
 
     document.body.appendChild(gameContainer);
     gameContainer.appendChild(boardHeader);
