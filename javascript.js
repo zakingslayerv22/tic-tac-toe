@@ -220,6 +220,8 @@ function screenController(playerOneName, playerTwoName) {
     const scoresDiv = document.createElement("div");
     scoresDiv.classList.add("scores-div")
 
+    //for player one
+
     const playerOneScoreDiv = document.createElement("div");
     playerOneScoreDiv.classList.add("player-one-container");
 
@@ -234,6 +236,19 @@ function screenController(playerOneName, playerTwoName) {
     const playerOneScore = document.createElement("div");
     playerOneScore.classList.add(".player-one-score");
 
+    //for player two
+
+    const playerTwoScoreDiv = document.createElement("div");
+    playerTwoScoreDiv.classList.add("player-two-container");
+
+    const playerTwoMarker = document.createElement("div");
+    playerTwoMarker.classList.add("player-two-marker");
+    playerTwoMarker.textContent = "o"
+
+    const playerTwoMoniker = document.createElement("div");
+    playerTwoMoniker.classList.add("player-two-name");
+    playerTwoMoniker.textContent = `${game.players[1].name}`
+
     const playerTwoScore = document.createElement("div");
     playerTwoScore.classList.add(".player-two-score");
 
@@ -245,8 +260,10 @@ function screenController(playerOneName, playerTwoName) {
     boardContainer.appendChild(playerTurnDiv);
     boardContainer.appendChild(boardDiv);
     boardContainer.appendChild(scoresDiv);
-    scoresDiv.append(playerOneScoreDiv, playerTwoScore);
-    playerOneScoreDiv.append(playerOneMarker, playerOneMoniker, playerOneScore)
+    scoresDiv.append(playerOneScoreDiv, playerTwoScoreDiv);
+    playerOneScoreDiv.append(playerOneMarker, playerOneMoniker, playerOneScore);
+    playerTwoScoreDiv.append(playerTwoMarker, playerTwoMoniker, playerTwoScore);
+ 
    
 
     // gameContainer.replaceChildren();
@@ -296,7 +313,7 @@ function screenController(playerOneName, playerTwoName) {
         })
 
         playerOneScore.textContent = `${playerOneStreak}`;
-        playerTwoScore.textContent = `${game.players[1].name}: ${playerTwoStreak}`; 
+        playerTwoScore.textContent = `${playerTwoStreak}`; 
 
     }
 
@@ -345,7 +362,7 @@ function handleBoardClicks (event) {
     }
   
     playerOneScore.textContent = `${playerOneStreak}`;
-    playerTwoScore.textContent = `${game.players[1].name}: ${playerTwoStreak}`; 
+    playerTwoScore.textContent = `${playerTwoStreak}`; 
 }
 
 boardDiv.addEventListener("click", handleBoardClicks)
@@ -363,7 +380,7 @@ resetRound.addEventListener("click", () => {
     playerOneStreak = 0;
     playerTwoStreak = 0;
     playerOneScore.textContent = `${playerOneStreak}`;
-    playerTwoScore.textContent = `${game.players[1].name} ${playerTwoStreak}`;
+    playerTwoScore.textContent = `${playerTwoStreak}`;
     resetButton.disabled = true;
     resetRound.disabled = true;
     infoDialog.close()
