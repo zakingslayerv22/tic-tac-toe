@@ -193,6 +193,21 @@ function screenController(playerOneName, playerTwoName) {
     //for the modal
     const infoDialog = document.querySelector("#winner-info-dialog");
     const displayInfo = document.querySelector(".display-info");
+    //playerOne
+    const displayPlayerOne = document.querySelector(".display-player-one");
+    const namePlayerOne = document.createTextNode(`${game.players[0].name} `);
+    const scorePlayerOne = document.querySelector(".score-player-one");
+
+    displayPlayerOne.insertBefore(namePlayerOne, scorePlayerOne);
+
+    //playerTwo
+    const displayPlayerTwo = document.querySelector(".display-player-two");
+    const namePlayerTwo = document.createTextNode(`${game.players[1].name} `);
+    const scorePlayerTwo = document.querySelector(".score-player-two");
+
+    displayPlayerTwo.appendChild(namePlayerTwo);
+
+
 
     const gameContainer = document.createElement("div");
     gameContainer.classList.add("game-container");
@@ -344,7 +359,8 @@ function handleBoardClicks (event) {
                         playerTwoStreak++;
                         playerOneStreak = 0;
                     } 
-                    
+
+                
                 } 
             
             if (gameResult.result === "tie") {
@@ -360,9 +376,14 @@ function handleBoardClicks (event) {
             }
         }
     }
-  
+
+    //for the board
     playerOneScore.textContent = `${playerOneStreak}`;
     playerTwoScore.textContent = `${playerTwoStreak}`; 
+
+    //for the dialog
+    scorePlayerOne.textContent = `${playerOneStreak}`;
+    scorePlayerTwo.textContent = `${playerTwoStreak} `;
 }
 
 boardDiv.addEventListener("click", handleBoardClicks)
