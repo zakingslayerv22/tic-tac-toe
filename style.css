@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     margin: 0;
     padding: 0;
 }
@@ -128,4 +128,26 @@ go as planned with the header */
 .scores-div {
     display: flex;
     justify-content: space-between;
+}
+
+.player-one-container, .player-two-container {
+    border: 1px solid black;
+    display: grid;
+    gap: 0.2rem;
+    justify-items: center;
+    padding: 0 1rem;
+}
+
+.player-one-marker, .player-two-marker {
+    font-size: 1.2rem;
+}
+
+.player-one-name, .player-two-name {
+    font-size: 1.22rem;
+    font-weight: bold;
+}
+
+.player-one-score, .player-two-score {
+    font-size: 1.5rem;
+    font-weight: bold;
 }
