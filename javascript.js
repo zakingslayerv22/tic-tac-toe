@@ -355,9 +355,15 @@ function handleBoardClicks (event) {
                     if (gameResult.winner === game.players[0].name) {
                         playerOneStreak++;
                         playerTwoStreak = 0;
+                        if (playerOneStreak === 3) {
+                            displayInfo.textContent = `Game over! ${game.players[0].name} wins! Try again?`;
+                         }
                     } else if (gameResult.winner === game.players[1].name) {
                         playerTwoStreak++;
                         playerOneStreak = 0;
+                        if (playerTwoStreak === 3) {
+                            displayInfo.textContent = `Flawless victory! ${game.players[1].name} wins! Try again?`;
+                         }
                     } 
 
                 
