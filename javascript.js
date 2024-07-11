@@ -193,6 +193,7 @@ function screenController(playerOneName, playerTwoName) {
     //for the modal
     const infoDialog = document.querySelector("#winner-info-dialog");
     const displayInfo = document.querySelector(".display-info");
+
     //playerOne
     const displayPlayerOne = document.querySelector(".display-player-one");
     const namePlayerOne = document.createTextNode(`${game.players[0].name} `);
@@ -457,11 +458,12 @@ function newGame() {
 
     const playerOneLabel = document.createElement("label");
     playerOneLabel.setAttribute("for", "player-one-name");
-    playerOneLabel.textContent = "Player One Name: "
+    playerOneLabel.textContent = "X"
 
     const playerOneName = document.createElement("input");
     playerOneName.setAttribute("type", "text");
     playerOneName.setAttribute("id", "player-one-name");
+    playerOneName.setAttribute("placeholder", "Enter player name");
 
     //player two
     const playerTwoDiv = document.createElement("div");
@@ -469,11 +471,12 @@ function newGame() {
 
     const playerTwoLabel = document.createElement("label");
     playerTwoLabel.setAttribute("for", "player-two-name");
-    playerTwoLabel.textContent = "Player Two Name: "
+    playerTwoLabel.textContent = "O"
 
     const playerTwoName = document.createElement("input");
     playerTwoName.setAttribute("type", "text");
     playerTwoName.setAttribute("id", "player-two-name");
+    playerTwoName.setAttribute("placeholder", "Enter player name");
 
     const startGameButton = document.createElement("button");
     startGameButton.classList.add("start-button");
