@@ -289,11 +289,11 @@ function screenController(playerOneName, playerTwoName) {
     let playerTwoStreak = 0;
 
 
-    const resetButton = document.querySelector(".reset-game");
-    resetButton.disabled = true;
+    const nextRoundButton = document.querySelector(".next-round-button");
+    nextRoundButton.disabled = true;
 
-    const resetRound = document.querySelector(".new-round");
-    resetRound.disabled = true;
+    const resetRoundButton = document.querySelector(".new-round-button");
+    resetRoundButton.disabled = true;
 
     const updateDisplay = () => {
         //clear the board
@@ -346,7 +346,7 @@ function handleBoardClicks (event) {
 
         if (gameResult) {
             updateDisplay()
-            resetButton.disabled = false;
+            nextRoundButton.disabled = false;
             infoDialog.showModal();
 
             if (gameResult.result === "win") {
@@ -377,8 +377,8 @@ function handleBoardClicks (event) {
             }
     
             if ((playerOneStreak === 3) || (playerTwoStreak === 3)) {
-                resetButton.disabled = true;
-                resetRound.disabled = false;
+                nextRoundButton.disabled = true;
+                resetRoundButton.disabled = false;
             }
         }
     }
@@ -394,22 +394,22 @@ function handleBoardClicks (event) {
 
 boardDiv.addEventListener("click", handleBoardClicks)
 
-resetButton.addEventListener("click", () => {
+nextRoundButton.addEventListener("click", () => {
     game.resetGame();
     updateDisplay();
-    resetButton.disabled = true;
+    nextRoundButton.disabled = true;
     infoDialog.close()
 })
 
-resetRound.addEventListener("click", () => {
+resetRoundButton.addEventListener("click", () => {
     game.resetGame();
     updateDisplay();
     playerOneStreak = 0;
     playerTwoStreak = 0;
     playerOneScore.textContent = `${playerOneStreak}`;
     playerTwoScore.textContent = `${playerTwoStreak}`;
-    resetButton.disabled = true;
-    resetRound.disabled = true;
+    nextRoundButton.disabled = true;
+    resetRoundButton.disabled = true;
     infoDialog.close()
 });
 
