@@ -75,10 +75,28 @@ input[type="text"]{
     text-align: center;
 }
 
+.dialog-container {
+    display: grid;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+}
+
+.display-info {
+    font-size: 1.2rem;
+}
+
 .dialog-display-scores {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
 }
 
 /* Look here if things don't
