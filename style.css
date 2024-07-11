@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    /* border: 2px solid red; */
+    border: 2px solid red;
     margin: 0;
     padding: 0;
 }
@@ -73,6 +73,12 @@ input[type="text"]{
     margin: auto;
     min-width: 100vw;
     text-align: center;
+}
+
+.dialog-display-scores {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 /* Look here if things don't
