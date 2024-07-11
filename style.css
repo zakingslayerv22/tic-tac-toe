@@ -78,7 +78,7 @@ input[type="text"]{
 .dialog-container {
     display: grid;
     gap: 0.5rem;
-    padding: 0.5rem 0;
+    padding: 2rem 0;
 }
 
 .display-info {
@@ -114,12 +114,15 @@ go as planned with the header */
 
 }
 
-.new-game-button {
-    align-self: center;
+.modal-buttons > button, #dialog-new-game-btn, .new-game-button {
     font-size: 1.2rem;
-    padding: 0.5rem;
+    padding: 0.7rem 1.5rem;
     border-radius: 5px;
     border: none;
+}
+/* for the board-header */
+.new-game-button {
+    align-self: center;
 }
 
 .display-turn-h2 {
