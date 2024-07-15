@@ -71,12 +71,12 @@ function controlGame(
     [
         {
             name: playerOneName,
-            marker: "1"
+            marker: "X"
         },
 
         {
             name: playerTwoName,
-            marker: "2"
+            marker: "O"
         }
 
     ];
@@ -138,8 +138,8 @@ function controlGame(
 
         
 
-        const playerOneWins = winningCombos.includes("111");
-        const playerTwoWins = winningCombos.includes("222");
+        const playerOneWins = winningCombos.includes("XXX");
+        const playerTwoWins = winningCombos.includes("OOO");
         const tie = (playersMoves === 9);
         
 
@@ -344,6 +344,17 @@ function handleBoardClicks (event) {
     if (event.target.textContent === "0") {
         const gameResult = game.playMove(selectedRow, selectedColumn);
         updateDisplay()
+
+        //style cell by player marker
+        const allCells = document.querySelectorAll(".cell");
+
+        allCells.forEach(cell => {
+            if (cell.textContent === "X") {
+                cell.classList.add("x-cell");
+            } else if (cell.textContent === "O") {
+                cell.classList.add("o-cell");
+            }
+        })
 
         if (gameResult) {
             updateDisplay()
