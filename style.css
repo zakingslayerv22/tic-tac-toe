@@ -23,7 +23,7 @@ body {
 
 * {
     box-sizing: border-box;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     margin: 0;
     padding: 0;
 }
@@ -34,6 +34,11 @@ body {
 
 input {
     outline: none;
+    width: 100%;
+}
+
+.start-page-div {
+    padding: 1.5rem;
 }
 
 .form-h1 {
@@ -48,8 +53,8 @@ input {
     display: grid;
     place-content: center;
     gap: 1.5rem;
-    width: 650px;
-    height: 210px; 
+    width: clamp(200px, 100%, 650px);
+    height: clamp(100px, 30vh, 210px); 
     padding: 2rem; 
     border-radius: 10px;
     
