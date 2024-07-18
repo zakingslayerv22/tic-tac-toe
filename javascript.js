@@ -458,6 +458,10 @@ function newGame() {
 
     const formDiv = document.createElement("div");
     formDiv.classList.add("form-div");
+
+    const formHint = document.createElement("span");
+    formHint.classList.add("form-hint")
+    formHint.textContent = "*Player names must be less than 11 chars"
     
 
     const form = document.createElement("form");
@@ -497,6 +501,7 @@ function newGame() {
     document.body.appendChild(startPageContainer);
     startPageContainer.appendChild(gameTitle);
     startPageContainer.appendChild(formDiv);
+    startPageContainer.appendChild(formHint);
     formDiv.appendChild(form);
 
     //append player one

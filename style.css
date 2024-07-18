@@ -23,7 +23,7 @@ body {
 
 * {
     box-sizing: border-box;
-    border: 2px solid red;
+    /* border: 2px solid red; */
     margin: 0;
     padding: 0;
 }
@@ -39,6 +39,7 @@ input {
 
 .start-page-div {
     padding: 1.5rem;
+    height: 98vh;
 }
 
 .form-h1 {
@@ -93,8 +94,10 @@ input[type="text"]{
 
 }
 
-.start-page-div {
-    height: 98vh;
+.form-hint {
+    justify-self: center;
+    color: red;
+    font-size: 0.9rem;
 }
 
 #winner-info-dialog[open] {
