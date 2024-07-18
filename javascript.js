@@ -474,7 +474,7 @@ function newGame() {
     const playerOneName = document.createElement("input");
     playerOneName.setAttribute("type", "text");
     playerOneName.setAttribute("id", "player-one-name");
-    playerOneName.setAttribute("placeholder", "Enter player name");
+    playerOneName.setAttribute("placeholder", "Enter name");
 
     //player two
     const playerTwoDiv = document.createElement("div");
@@ -487,7 +487,7 @@ function newGame() {
     const playerTwoName = document.createElement("input");
     playerTwoName.setAttribute("type", "text");
     playerTwoName.setAttribute("id", "player-two-name");
-    playerTwoName.setAttribute("placeholder", "Enter player name");
+    playerTwoName.setAttribute("placeholder", "Enter name");
 
     const startGameButton = document.createElement("button");
     startGameButton.classList.add("start-button");
@@ -512,6 +512,26 @@ function newGame() {
     //append button 
     formDiv.appendChild(startGameButton);
 
+    const formTextInputs = document.querySelectorAll("[type=text]");
+
+    const checkInputFields = () => {
+        const nameInputArray = Array.from(formTextInputs);
+
+        //check if input field is empty
+        const anyEmpty = nameInputArray.some(input => !input.value.trim());
+
+       //check if input length is greater than 10
+       const anyTooLong = nameInputArray.some(input => input.value.length > 10);
+     
+        //disable or enable button based on the check
+        startGameButton.disabled = anyEmpty || anyTooLong;
+    }
+   
+    formTextInputs.forEach((input) => {
+        input.addEventListener("input", checkInputFields)
+    });
+
+    checkInputFields();
 
     startGameButton.addEventListener("click", () => {
         startPageContainer.remove()
