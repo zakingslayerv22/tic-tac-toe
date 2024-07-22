@@ -194,9 +194,9 @@ input[type="text"]{
 /* Look here if things don't
 go as planned with the header */
 .game-container {
-    display: grid;
-    gap: 0.5rem;
-    grid-template-rows: 1fr 6fr 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
 }
 .board-header-div {
     display: flex;
@@ -247,7 +247,7 @@ button {
 
 .board-container {
     display: grid;
-    gap: 1rem;
+    gap: 2rem;
 }
 
 .board {
@@ -292,7 +292,7 @@ button {
 
 .scores-div {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .player-one-container, .player-two-container {
@@ -302,7 +302,7 @@ button {
     justify-items: center;
     padding: 0 1rem;
     border-radius: 10px;
-    color: black;
+    color: #212121;
 }
 
 .player-one-marker, .player-two-marker {

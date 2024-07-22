@@ -275,7 +275,7 @@ function screenController(playerOneName, playerTwoName) {
     gameContainer.appendChild(boardContainer);
     boardContainer.appendChild(playerTurnDiv);
     boardContainer.appendChild(boardDiv);
-    boardContainer.appendChild(scoresDiv);
+    gameContainer.appendChild(scoresDiv);
     scoresDiv.append(playerOneScoreDiv, playerTwoScoreDiv);
     playerOneScoreDiv.append(playerOneMarker, playerOneMoniker, playerOneScore);
     playerTwoScoreDiv.append(playerTwoMarker, playerTwoMoniker, playerTwoScore);
