@@ -3,33 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🕹️</text></svg>">
     <link rel="stylesheet" href="style.css">
     <script src="javascript.js" defer></script>
     <!-- <script src="test.js" defer></script> -->
-    <title>Document</title>
+    <title>Tic-tac-toe</title>
 </head>
 <body>
 
     <dialog id="winner-info-dialog">
-        <div class="display-info"></div>
-        <div class="dialog-display-scores">
-            <div class="display-player-one"> <span class="score-player-one">0</span> </div>
-            <div class="versus-div">vs</div>
-            <div class="display-player-two"><span class="score-player-two">0</span> </div>
-        </div>
-        <div class="modal-buttons">
-            <button class="next-round-button">Next Round</button>
-            <button class="new-round-button">New Round</button>
-            <button id="dialog-new-game-btn" class="new-game-button">New Game</button>
+        <div class="dialog-container">
+            <div class="display-info"></div>
+            <div class="dialog-display-scores">
+                <div class="display-player-one">  <span class="score-player-one"></span> </div>
+                <div class="versus-div">vs</div>
+                <div class="display-player-two"><span class="score-player-two"></span></div>
+            </div>
+            <div class="modal-buttons">
+                <button class="next-round-button">Next Round</button>
+                <button class="new-round-button">New Round</button>
+                <button id="dialog-new-game-btn" class="new-game-button">New Game</button>
+            </div>
         </div>
     </dialog>
-    <!-- <div class="container">
-        <h1 class="display-turn"></h1>
-        <div class="board"></div>
-    </div> -->
-
-    <!-- <div class="player-one-score"></div>
-    <div class="player-two-score"></div> -->
 
 </body>
 </html>
