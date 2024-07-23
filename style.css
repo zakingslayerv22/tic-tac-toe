@@ -141,6 +141,10 @@ input[type="text"]{
     border: none;
 }
 
+#winner-info-dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
 .dialog-container {
     display: grid;
     gap: 2rem;
@@ -227,6 +231,11 @@ button {
     border: none;
 }
 
+button:active:enabled {
+
+    transform: translateY(4px); 
+}
+
 
 
 .modal-buttons > button, #dialog-new-game-btn, .new-game-button {
@@ -265,6 +274,7 @@ button {
 
 .display-turn-h2 {
     justify-self: center;
+    font-size: 1.25rem;
 }
 
 .board-container {
@@ -279,7 +289,6 @@ button {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 2rem;
-    border: 1px solid black;
     padding: 2px;
     /* background-color: green; */
 }
