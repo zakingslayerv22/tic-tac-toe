@@ -100,11 +100,11 @@ input[type="text"]{
 }
 
 .start-button, .new-game-button {
-    background-color:  #83b686;
+    background-color:  #6ca272;
 }
 
 .start-button:hover, .new-game-button:hover {
-    background-color: #6ca272;
+    background-color: #57835c;
     color: #FFFFFF
 }
 
@@ -130,6 +130,8 @@ input[type="text"]{
     min-width: 100vw;
     text-align: center;
     padding: 1.8rem 1.5rem;
+    background-color: #363636;
+    border: none;
 }
 
 .dialog-container {
@@ -139,14 +141,17 @@ input[type="text"]{
 }
 
 .display-info {
-    font-size: 1.2rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #c0d0d8;
 }
 
 .dialog-display-scores {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
-    font-size: 1.3rem;
+    font-size: 2rem;
     font-weight: bold;
 }
 
@@ -165,7 +170,7 @@ input[type="text"]{
 }
 
 .next-round-button:hover {
-    background-color: #f42f21;
+    background-color: #f02d1f;
     color:#FFFFFF;
 }
 
@@ -179,7 +184,7 @@ input[type="text"]{
 }
 
 .new-round-button:hover {
-    background-color: #2093c4;
+    background-color: #118ec4;
     color:#FFFFFF;
 }
 
@@ -196,7 +201,7 @@ go as planned with the header */
 .game-container {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: 2rem;
 }
 .board-header-div {
     display: flex;
@@ -228,6 +233,10 @@ button {
         font-size: 1rem;
         padding: 0.4rem 0.5rem;
 
+    }
+
+    .dialog-display-scores {
+        font-size: 1.3rem;
     }
 }
 
