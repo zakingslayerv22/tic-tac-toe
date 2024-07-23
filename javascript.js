@@ -21,8 +21,9 @@ function createGameBoard() {
 
     const getBoard = () => board;
 
+
     const placeMarker = (row, column, player) => {
-        if (board[row][column].getCellValue() === 0) {
+        if (board[row][column].getCellValue() === "") {
             board[row][column].placePlayerMarker(player);
         } else {
             //wrong move, a marker is already here
@@ -44,9 +45,9 @@ function createGameBoard() {
 
 function createCell() {
     //default cell value
-    let cellValue = 0;
+    let cellValue = "";
 
-    const resetCell = () => cellValue = 0;
+    const resetCell = () => cellValue = "";
 
     //player would be able to change the value of the cell
     const placePlayerMarker = (player) => {
@@ -188,7 +189,7 @@ function controlGame(
 
 
 function screenController(playerOneName, playerTwoName) {
-    const game = controlGame("Player One", "Player Two");
+    const game = controlGame(playerOneName, playerTwoName);
 
     //for the modal
     const infoDialog = document.querySelector("#winner-info-dialog");
@@ -243,7 +244,7 @@ function screenController(playerOneName, playerTwoName) {
 
     const playerOneMarker = document.createElement("div");
     playerOneMarker.classList.add("player-one-marker");
-    playerOneMarker.textContent = "x"
+    playerOneMarker.textContent = "X"
 
     const playerOneMoniker = document.createElement("div");
     playerOneMoniker.classList.add("player-one-name");
@@ -259,7 +260,7 @@ function screenController(playerOneName, playerTwoName) {
 
     const playerTwoMarker = document.createElement("div");
     playerTwoMarker.classList.add("player-two-marker");
-    playerTwoMarker.textContent = "o"
+    playerTwoMarker.textContent = "O"
 
     const playerTwoMoniker = document.createElement("div");
     playerTwoMoniker.classList.add("player-two-name");
@@ -341,7 +342,7 @@ function handleBoardClicks (event) {
     if (!selectedRow && !selectedColumn) return;
 
     //play the move if the cell is not taken
-    if (event.target.textContent === "0") {
+    if (event.target.textContent === "") {
         const gameResult = game.playMove(selectedRow, selectedColumn);
         updateDisplay()
 
@@ -368,13 +369,13 @@ function handleBoardClicks (event) {
                         playerOneStreak++;
                         playerTwoStreak = 0;
                         if (playerOneStreak === 3) {
-                            displayInfo.textContent = `Game over! ${game.players[0].name} wins! Try again?`;
+                            displayInfo.textContent = `Game over! ${game.players[0].name} wins!🏆 Try again?`;
                          }
                     } else if (gameResult.winner === game.players[1].name) {
                         playerTwoStreak++;
                         playerOneStreak = 0;
                         if (playerTwoStreak === 3) {
-                            displayInfo.textContent = `Flawless victory! ${game.players[1].name} wins! Try again?`;
+                            displayInfo.textContent = `Flawless victory! ${game.players[1].name} wins!🏆 Try again?`;
                          }
                     } 
 
@@ -461,7 +462,7 @@ function newGame() {
 
     const formHint = document.createElement("span");
     formHint.classList.add("form-hint")
-    formHint.textContent = "*Player names must be less than 11 chars"
+    formHint.textContent = "* Player names must be less than 11 chars."
     
 
     const form = document.createElement("form");
