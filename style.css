@@ -129,14 +129,14 @@ input[type="text"]{
     margin: auto;
     min-width: 100vw;
     text-align: center;
-    padding: 1.8rem 1.5rem;
+    padding: 2rem 1.5rem;
     background-color: #363636;
     border: none;
 }
 
 .dialog-container {
     display: grid;
-    gap: 1.5rem;
+    gap: 2rem;
 
 }
 
@@ -152,11 +152,13 @@ input[type="text"]{
     justify-content: center;
     gap: 0.5rem;
     font-size: 2rem;
-    font-weight: bold;
+    font-weight: bold; 
 }
 
 .versus-div {
     font-weight: normal;
+    color: #c0d0d8;
+
 }
 
 .modal-buttons {
@@ -235,8 +237,12 @@ button {
 
     }
 
+    .display-info {
+        font-size: 0.88rem;
+    }
+
     .dialog-display-scores {
-        font-size: 1.3rem;
+        font-size: 1.5rem;
     }
 }
 
@@ -278,11 +284,11 @@ button {
     color: whitesmoke
 }
 
-.player-one > label, .x-cell{
+.player-one > label, .x-cell, .display-player-one {
     color: var(--x-color-main);
 }
 
-.player-two > label, .o-cell{
+.player-two > label, .o-cell, .display-player-two {
     color: var(--o-color-main)
 }
 
@@ -320,7 +326,6 @@ button {
 
 .player-one-name, .player-two-name {
     font-size: 1.22rem;
-    font-weight: bold;
 }
 
 .player-one-score, .player-two-score {
